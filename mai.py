@@ -1,5 +1,34 @@
-# https://gemini.google.com/app/0267c621c056beae?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all
-import pandas as pd
-import numpy as np
-df = pd.read_csv(r"C:\Users\sk062\Downloads\df_intern_27.csv")
-df
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+from kivy.uix.button import Button
+
+
+class MyApp(App):
+    def build(self):
+        
+        self.layout = BoxLayout(orientation='vertical')
+
+        self.label = Label(text='Hello!')
+        button = Button(text='Click me')
+
+        button.bind(on_press=self.on_button_press)
+
+        self.layout.add_widget(self.label)
+        self.layout.add_widget(button)
+
+        return self.layout
+
+    def on_button_press(self, instance):
+        
+            button2 = Button(text="Hi!")
+            button2.bind(on_press=self.onSecondButton)
+            self.layout.add_widget(button2)
+            
+            self.label.text = 'Next'
+
+    def onSecondButton(self, instance):
+        self.label.text = "second"
+
+if __name__ == '__main__':
+    MyApp().run()
