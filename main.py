@@ -8,9 +8,9 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 
 # --- 1つ目の画面（メニュー画面）の定義 ---
-class MenuScreen(Screen):
+class Firist_screan(Screen):
     def __init__(self, **kwargs):
-        super(MenuScreen, self).__init__(**kwargs)
+        super(Firist_screan, self).__init__(**kwargs)
         
         # 画面のレイアウトを定義（今回は縦にウィジェットを並べるBoxLayout）
         layout = BoxLayout(orientation='vertical', padding=30, spacing=20)
@@ -27,7 +27,7 @@ class MenuScreen(Screen):
         # allow_stretch=True にすると、ウィジェットのサイズに合わせて画像が伸縮します。
         # keep_ratio=False にすると、アスペクト比を維持しなくなります。
         app_image = Image(
-            source=r'C:\Users\sk062\Downloads\2025-05-28_220755.png', 
+            source=r"C:\Git Hub\pre-app\Images\lost glasses.png", 
             allow_stretch=True,
             keep_ratio=True
         )
@@ -44,18 +44,18 @@ class MenuScreen(Screen):
         # 画面にレイアウトを追加
         self.add_widget(layout)
 
-    def go_to_settings(self, instance):
+    def go_to_second(self, instance):
         """
-        設定画面に遷移する関数
+        二番目の画面に遷移する関数
         """
-        self.manager.current = 'settings'
+        self.manager.current = 'second'
         # 画面遷移時のエフェクトも指定できます
         self.manager.transition.direction = 'left'
 
 # --- 2つ目の画面（設定画面）の定義 ---
-class SettingsScreen(Screen):
+class Second_screan(Screen):
     def __init__(self, **kwargs):
-        super(SettingsScreen, self).__init__(**kwargs)
+        super(Second_screan, self).__init__(**kwargs)
         
         # こちらも同様にBoxLayoutでレイアウトを定義
         layout = BoxLayout(orientation='vertical', padding=30, spacing=20)
@@ -67,19 +67,92 @@ class SettingsScreen(Screen):
         menu_button = Button(text='back menu', font_size='20sp')
         # ボタンが押されたときに呼ばれる関数をバインド
         menu_button.bind(on_press=self.go_to_menu)
+
+        app_image_2nd = Image(
+            source=r"C:\Git Hub\pre-app\Images\Search begins.png", 
+            allow_stretch=True,
+            keep_ratio=True
+        )
         
         # レイアウトにウィジェットを追加
         layout.add_widget(title_label)
         layout.add_widget(menu_button)
+        layout.add_widget(app_image_2nd)
         
         # 画面にレイアウトを追加
         self.add_widget(layout)
 
-    def go_to_menu(self, instance):
+    def go_to_third(self, instance):
+        """
+        三番目の画面に遷移する関数
+        """
+        self.manager.current = 'third'
+
+class Third_screan(Screen):
+    def __init__(self, **kwargs):
+        super(Third_screan, self).__init__(**kwargs)
+
+        layout = BoxLayout(orientation='vertical', padding=30, spacing=20)
+
+        title_label = Label(text='setting', font_size='24sp', size_hint_y=None, height=50)
+        
+        # メニュー画面に戻るためのボタン
+        menu_button = Button(text='back menu', font_size='20sp')
+        # ボタンが押されたときに呼ばれる関数をバインド
+        menu_button.bind(on_press=self.go_to_menu)
+
+        app_image_3rd = Image(
+            source=r"C:\Git Hub\pre-app\Images\Searching.png", 
+            allow_stretch=True,
+            keep_ratio=True
+        )
+        
+        # レイアウトにウィジェットを追加
+        layout.add_widget(title_label)
+        layout.add_widget(menu_button)
+        layout.add_widget(app_image_3rd)
+        
+        # 画面にレイアウトを追加
+        self.add_widget(layout)
+    
+    def go_to_forth(self, instance):
         """
         メニュー画面に遷移する関数
         """
-        self.manager.current = 'menu'
+        self.manager.current = 'forth'
+
+class Forth_screan(Screen):
+    def __init__(self, **kwargs):
+        super(Forth_screan, self).__init__(**kwargs)
+
+        layout = BoxLayout(orientation='vertical', padding=30, spacing=20)
+
+        title_label = Label(text='setting', font_size='24sp', size_hint_y=None, height=50)
+        
+        # メニュー画面に戻るためのボタン
+        menu_button = Button(text='back menu', font_size='20sp')
+        # ボタンが押されたときに呼ばれる関数をバインド
+        menu_button.bind(on_press=self.go_to_menu)
+
+        app_image_4th = Image(
+            source=r"C:\Git Hub\pre-app\Images\Loading image.png", 
+            allow_stretch=True,
+            keep_ratio=True
+        )
+        
+        # レイアウトにウィジェットを追加
+        layout.add_widget(title_label)
+        layout.add_widget(menu_button)
+        layout.add_widget(app_image_4th)
+        
+        # 画面にレイアウトを追加
+        self.add_widget(layout)
+
+    def go_to_forth(self, instance):
+        """
+        メニュー画面に遷移する関数
+        """
+        self.manager.current = 'first'
 
 
 # --- アプリケーション本体の定義 ---
@@ -91,8 +164,10 @@ class ScreenApp(App):
         
         # 作成した画面クラスのインスタンスをスクリーンマネージャーに追加
         # name='...' で指定した名前が、遷移先を指定する際に使われます
-        sm.add_widget(MenuScreen(name='menu'))
-        sm.add_widget(SettingsScreen(name='settings'))
+        sm.add_widget(Firist_screan(name='first'))
+        sm.add_widget(Second_screan(name='second'))
+        sm.add_widget(Third_screan(name='Third'))
+        sm.add_widget(Forth_screan(name="Forth"))
         
         # スクリーンマネージャーをアプリのルートウィジェットとして返す
         return sm
