@@ -46,7 +46,7 @@ class MainScrean( BoxLayout ):
         self.screen_text = transition
 
         self.main_label = Label(
-            text = self.screen_texts[self.screen_index],
+            text = self.screen_text[self.screen_index],
             font_size = font_size_1st
         )
 
