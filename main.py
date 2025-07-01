@@ -50,18 +50,17 @@ class MainScrean( BoxLayout ):
             font_size = font_size_1st
         )
 
-        self.next_botton = Button(
+        self.next_button = Button(
             text = next_text,
             font_size = font_size_2nd,
             size_hint_y = None,
-            height = "50dp"
+            height = height_50dp
         )
 
-        # ボタンが押されたときに呼び出す関数（メソッド）を紐付けます。
         self.next_button.bind(on_press=self.go_to_next_screen)
 
         self.add_widget(self.main_label)
-        self.add_widget(self.next_botton)
+        self.add_widget(self.next_button)
     
     def go_to_next_screen(self, instance):
         self.screen_index += 1
@@ -79,4 +78,3 @@ class ScreenTransitionApp(App):
     
 if __name__ == "__main__":
     ScreenTransitionApp().run()
-
