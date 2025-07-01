@@ -27,6 +27,13 @@ transition = ["Loding", "Search begins", "Search", "lostglasses"]
 
 # fontsizeの定義
 font_size_1st = "40sp"
+font_size_2nd = "20sp"
+
+# パラメータの調整
+height_50dp = "50dp"
+
+# 表示テキストの定義
+next = "next"
 
 # メインの画面となるレイアウトを定義するクラスです。
 # BoxLayoutを継承しており、ウィジェット（部品）を縦か横に並べることができます。
@@ -42,10 +49,31 @@ class MainScrean( BoxLayout ):
             text = self.screen_texts[self.screen_index],
             font_size = font_size_1st
         )
+
         self.next_botton = Button(
-            
+            text = next,
+            font_size = font_size_2nd,
+            size_hint_y = None,
+            height = "50dp"
         )
 
         # ボタンが押されたときに呼び出す関数（メソッド）を紐付けます。
         self.next_button.bind(on_press=self.go_to_next_screen)
+
+        self.add_widget(self.main_label)
+        self.add_widget(self.next_botton)
+    
+    def go_to_next_screen(self, instance):
+        self.screen_index += 1
+
+        if self.screen_index < len(self.screen_text) - 1 :
+            self.remove_widget(self.next_botton)
+
+class ScreenTransitionApp(App):
+
+    def build(self):
+        return MainScrean()
+    
+if __name__ == "__main__":
+    ScreenTransitionApp().run()
 
