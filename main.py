@@ -51,7 +51,7 @@ class MainScrean( BoxLayout ):
         )
 
         self.next_botton = Button(
-            text = next,
+            text = next_text,
             font_size = font_size_2nd,
             size_hint_y = None,
             height = "50dp"
@@ -66,8 +66,11 @@ class MainScrean( BoxLayout ):
     def go_to_next_screen(self, instance):
         self.screen_index += 1
 
-        if self.screen_index < len(self.screen_text) - 1 :
-            self.remove_widget(self.next_botton)
+        if self.screen_index < len(self.screen_text) :
+            self.main_label.text = self.screen_text[self.screen_index]
+
+            if self.screen_index == len(self.screen_text) - 1:
+                self.remove_widget(self.next_button)
 
 class ScreenTransitionApp(App):
 
