@@ -1,11 +1,14 @@
+# kivyをインポートする
+import kivy
+
+# kivyのバージョン指定
+kivy.require('2.2.0')
+
 # Kivyライブラリから必要なコンポーネントをインポートします
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
 from kivy.uix.label import Label
-# Web上の画像を非同期で読み込むためにAsyncImageウィジェットをインポート
-from kivy.uix.image import AsyncImage
+from kivy.uix.button import Button
 from kivy.core.window import Window
 
 # --- GitHubリポジトリの設定 ---
