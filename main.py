@@ -33,7 +33,7 @@ font_size_2nd = "20sp"
 height_50dp = "50dp"
 
 # 表示テキストの定義
-next = "next"
+next_text = "next"
 
 # メインの画面となるレイアウトを定義するクラスです。
 # BoxLayoutを継承しており、ウィジェット（部品）を縦か横に並べることができます。
