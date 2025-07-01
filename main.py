@@ -11,15 +11,6 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.core.window import Window
 
-# --- GitHubリポジトリの設定 ---
-# あなたのGitHubユーザー名とリポジトリ名に書き換えてください
-GITHUB_USERNAME = "Keita062"  # 例: "kivy"
-GITHUB_REPOSITORY = "pre-app" # 例: "kivy"
-# ブランチ名を指定します。通常は 'main' または 'master' です。
-BRANCH_NAME = "main"
-
-# 画像が保存されているフォルダのパス (リポジトリのルートからのパス)
-IMAGE_FOLDER_PATH = "Images" # 元のコードの 'Images' フォルダを想定
 
 # ベースURLを構築
 BASE_IMAGE_URL = f"https://github.com/{GITHUB_USERNAME}/{GITHUB_REPOSITORY}/{BRANCH_NAME}/{IMAGE_FOLDER_PATH}"
