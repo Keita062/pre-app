@@ -39,8 +39,8 @@ reset_text = "Return to top"
 # メインの画面となるレイアウトを定義するクラスです。
 # BoxLayoutを継承しており、ウィジェット（部品）を縦か横に並べることができます。
 class MainScrean( BoxLayout ):
-    def __init__( self , **kwargs ):
-        super( MainScrean , self ).__init__( **kwargs )
+    def __init__( self , **keyword_arguments ):
+        super( MainScrean , self ).__init__( **keyword_arguments )
         self.orientation = Layout_setting
 
         self.screen_index = 0
